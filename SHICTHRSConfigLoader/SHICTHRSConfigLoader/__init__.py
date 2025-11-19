@@ -30,11 +30,14 @@ class SHRConfigLoaderException(BaseException):
 def SHRConfigLoader_read_ini_file(path : str) -> dict:
     try:
         if os.path.exists(path):
-            return read_ini_file(path)
+            if os.path.isfile(path) and path.endswith('.ini'):
+                return read_ini_file(path)
+            else:
+                raise Exception(f"SHRConfigLoader [ERROR.1000] only ini file is supported not .{path.split('.')[-1]}. File Path : {path} NOT FOUND")
         else:
-            raise Exception(f"SHRConfigLoader [ERROR.1000] unable to find config file. File Path : {path} NOT FOUND")
+            raise Exception(f"SHRConfigLoader [ERROR.1001] unable to find config file. File Path : {path} NOT FOUND")
     except Exception as e:
-        raise SHRConfigLoaderException(f"SHRConfigLoader [ERROR.1001] unable to read config file. File Path : {path} | {e}")
+        raise SHRConfigLoaderException(f"SHRConfigLoader [ERROR.1002] unable to read config file. File Path : {path} | {e}")
 
 def SHRConfigLoader_write_ini_file(config_dict : dict , path : str) -> None:
     try:

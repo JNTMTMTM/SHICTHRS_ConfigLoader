@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='SHICTHRSConfigLoader',
-      version='1.1.0',
+      version='1.2.0',
       description='SHICTHRS Config file logging system',
       url='https://github.com/JNTMTMTM/SHICTHRS_ConfigLoader',
       author='SHICTHRS',
