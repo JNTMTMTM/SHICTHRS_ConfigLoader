@@ -20,7 +20,7 @@ print('\033[1mWelcome to use SHRLogCore - ConfigLoader Config System\033[0m\n|  
 print('|  \033[1mAlgorithms = rule ; Questioning = approval\033[0m')
 print('|  \033[1mCopyright : © 2025-2026 SHICTHRS, Std. All rights reserved.\033[0m\n')
 
-class SHRConfigLoaderException(BaseException):
+class SHRConfigLoaderException(Exception):
     def __init__(self , message: str) -> None:
         self.message = message
     
