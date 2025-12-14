@@ -3,7 +3,7 @@
 
 import configparser
 
-class CaseSensitiveConfigParser(configparser.ConfigParser):
+class CaseSensitiveConfigParser(configparser.RawConfigParser):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
